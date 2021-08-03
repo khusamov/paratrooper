@@ -7,6 +7,7 @@ Game::Game(Screen *screen, Gamepad *gamepad) {
 	this->gamepad = gamepad;
 	this->bulletList = new BulletList;
 	this->gun = new Gun(screen);
+	this->helicopter = new Helicopter(screen);
 }
 
 Game::~Game() {
@@ -45,6 +46,8 @@ bool pointOffScreen(int x, int y, TFT_eSprite *buffer) {
 void Game::tick() {
 	const int screenWidth = this->screen->buffer->width();
 	const int screenHeight = this->screen->buffer->height();
+
+	this->helicopter->update();
 
 	// Изменение состояния пушки.
 	float gun_angle_speed = 0;
@@ -145,6 +148,8 @@ void Game::draw() {
 		}
 		currentBullet = currentBullet->next;
 	}
+
+	this->helicopter->draw();
 
 	// Земля.
 	this->screen->buffer->drawLine(0, screenHeight - 1, screenWidth - 1, screenHeight - 1, 1);

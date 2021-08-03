@@ -2,8 +2,9 @@
 #include <Arduino.h>
 #include "../screen/Screen.h"
 #include "../gamepad/Gamepad.h"
-#include <./game/bullet/BulletList.h>
-#include <./game/gun/Gun.h>
+#include "./game/bullet/BulletList.h"
+#include "./game/gun/Gun.h"
+#include "./game/helicopter/Helicopter.h"
 
 class Game {
 	public:
@@ -18,6 +19,7 @@ class Game {
 		Gamepad *gamepad = nullptr;
 		BulletList *bulletList = nullptr;
 		Gun *gun = nullptr;
+		Helicopter *helicopter = nullptr;
 		float gun_angle = PI / 2;
 		int fireCounter = 100;
 		int bombCounter = 30;
