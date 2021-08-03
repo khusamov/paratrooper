@@ -15,10 +15,8 @@ Game::~Game() {
 }
 
 void Game::begin() {
-	this->gamepad->begin();
-
-	this->screen->buffer->fillScreen(TFT_BLACK);
-	this->screen->buffer->setTextColor(TFT_WHITE, TFT_BLACK);
+	this->screen->buffer->fillScreen(0);
+	this->screen->buffer->setTextColor(1, 0);
 	this->screen->buffer->setTextSize(1);
 	this->screen->buffer->setCursor(0, 0, 2);
 	this->screen->buffer->print("Paratrooper Game!");
@@ -108,7 +106,7 @@ void Game::draw() {
 	const int screenWidth = this->screen->buffer->width();
 	const int screenHeight = this->screen->buffer->height();
 
-	this->screen->buffer->fillSprite(TFT_BLACK);
+	this->screen->buffer->fillSprite(0);
 
 	// Статусная строка.
 	this->screen->buffer->setCursor(3, 0);
@@ -134,14 +132,14 @@ void Game::draw() {
 				int bullet_y1 = screenHeight - currentBullet->radius * sin(currentBullet->angle);
 				int bullet_x2 = (currentBullet->radius + fireSize) * cos(currentBullet->angle) + screenWidth / 2;
 				int bullet_y2 = screenHeight - (currentBullet->radius + fireSize) * sin(currentBullet->angle);
-				this->screen->buffer->drawLine(bullet_x1, bullet_y1, bullet_x2, bullet_y2, TFT_WHITE);
+				this->screen->buffer->drawLine(bullet_x1, bullet_y1, bullet_x2, bullet_y2, 3);
 				break;
 			}
 			case Bomb: {
 				int bombSize = 1;
 				int bullet_x1 = (currentBullet->radius + bombSize) * cos(currentBullet->angle) + screenWidth / 2;
 				int bullet_y1 = screenHeight - (currentBullet->radius + bombSize) * sin(currentBullet->angle);
-				this->screen->buffer->drawCircle(bullet_x1, bullet_y1, bombSize, TFT_WHITE);
+				this->screen->buffer->drawCircle(bullet_x1, bullet_y1, bombSize, 2);
 				break;
 			}
 		}
@@ -149,5 +147,5 @@ void Game::draw() {
 	}
 
 	// Земля.
-	this->screen->buffer->drawLine(0, screenHeight - 1, screenWidth - 1, screenHeight - 1, TFT_WHITE);
+	this->screen->buffer->drawLine(0, screenHeight - 1, screenWidth - 1, screenHeight - 1, 1);
 }

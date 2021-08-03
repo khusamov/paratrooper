@@ -71,7 +71,7 @@ void Ota::defineArduinoOtaOnStartHandler() {
 		Serial.println("Start updating " + type + ":");
 
 		screen->clear();
-		screen->buffer->setTextColor(TFT_WHITE, TFT_BLACK);
+		screen->buffer->setTextColor(1, 0);
 		screen->buffer->setTextSize(1);
 		screen->buffer->setCursor(0, 0);
 		screen->buffer->println("Start updating " + type);

@@ -11,7 +11,7 @@ void Gun::draw() {
 	int gun_y1 = screenHeight;
 	int gun_x2 = gun_length1 * cos(this->angle) + screenWidth / 2;
 	int gun_y2 = screenHeight - gun_length1 * sin(this->angle);
-	this->screen->buffer->drawLine(gun_x1, gun_y1, gun_x2, gun_y2, TFT_WHITE);
+	this->screen->buffer->drawLine(gun_x1, gun_y1, gun_x2, gun_y2, 1);
 }
 
 float Gun::getAngle() {
