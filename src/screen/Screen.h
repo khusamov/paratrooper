@@ -2,6 +2,9 @@
 #include <Arduino.h>
 #include <TFT_eSPI.h>
 
+/**
+ * 128x160
+ */
 class Screen {
 	public:
 		Screen();
