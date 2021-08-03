@@ -23,6 +23,8 @@ void setup(void) {
 		game = nullptr;
 	});
 
+	gamepad.begin();
+
 	game = new Game(&screen, &gamepad);
 	game->begin();
 }
